@@ -29,8 +29,10 @@ ADD . /research/resnet
 
 
 WORKDIR /research/resnet
-RUN pip3 install -r official/requirements.txt
-
+# RUN pip3 install -r official/requirements.txt
+RUN pip install --no-cache-dir psutil>=5.4.3 \
+ && pip install --no-cache-dir py-cpuinfo>=3.3.0 \
+ && pip install --no-cache-dir google-cloud-bigquery>=0.31.0
 
 ENTRYPOINT ["/bin/bash"]
 
